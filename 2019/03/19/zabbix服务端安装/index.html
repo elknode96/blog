@@ -8,23 +8,24 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>zabbix安装 | JanNan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Zabbix 服务器端安装部署一、    配置依赖环境注意：此次系统环境为：centos 7.2  依赖环境为：LAMP系统环境跳过安装：确保centos 是干净环境；现在安装依赖环境 我们利用yum来安装，首先我们替换yum源 可选择（阿里源、网易源）这里是阿里源。">
+  <meta name="description" content="Zabbix 服务器端安装部署">
 <meta name="keywords" content="zabbix">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zabbix安装">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/zabbix服务端安装/index.html">
 <meta property="og:site_name" content="JanNan">
-<meta property="og:description" content="Zabbix 服务器端安装部署一、    配置依赖环境注意：此次系统环境为：centos 7.2  依赖环境为：LAMP系统环境跳过安装：确保centos 是干净环境；现在安装依赖环境 我们利用yum来安装，首先我们替换yum源 可选择（阿里源、网易源）这里是阿里源。">
+<meta property="og:description" content="Zabbix 服务器端安装部署">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/zabbix.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix-web.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix-pass.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix-ip.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix-login.jpg">
-<meta property="og:updated_time" content="2019-03-19T10:09:10.391Z">
+<meta property="og:updated_time" content="2019-03-19T10:26:09.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zabbix安装">
-<meta name="twitter:description" content="Zabbix 服务器端安装部署一、    配置依赖环境注意：此次系统环境为：centos 7.2  依赖环境为：LAMP系统环境跳过安装：确保centos 是干净环境；现在安装依赖环境 我们利用yum来安装，首先我们替换yum源 可选择（阿里源、网易源）这里是阿里源。">
-<meta name="twitter:image" content="http://yoursite.com/img/zabbix-web.jpg">
+<meta name="twitter:description" content="Zabbix 服务器端安装部署">
+<meta name="twitter:image" content="http://yoursite.com/img/zabbix.jpg">
   
     <link rel="alternative" href="/atom.xml" title="JanNan" type="application/atom+xml">
   
@@ -176,8 +177,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Zabbix-服务器端安装部署"><a href="#Zabbix-服务器端安装部署" class="headerlink" title="Zabbix 服务器端安装部署"></a><center>Zabbix 服务器端安装部署</center></h1><h2 id="一、-配置依赖环境"><a href="#一、-配置依赖环境" class="headerlink" title="一、    配置依赖环境"></a>一、    配置依赖环境</h2><p><code>注意：此次系统环境为：centos 7.2  依赖环境为：LAMP</code><br><br>系统环境跳过安装：确保centos 是干净环境；现在安装依赖环境 我们利用yum来安装，首先我们替换yum源 可选择（阿里源、网易源）这里是阿里源。</p>
+        <h1 id="Zabbix-服务器端安装部署"><a href="#Zabbix-服务器端安装部署" class="headerlink" title="Zabbix 服务器端安装部署"></a><center>Zabbix 服务器端安装部署</center></h1><center><img src="/img/zabbix.jpg" alt></center>
+
 <a id="more"></a>
+<h2 id="一、-配置依赖环境"><a href="#一、-配置依赖环境" class="headerlink" title="一、    配置依赖环境"></a>一、    配置依赖环境</h2><p><code>注意：此次系统环境为：centos 7.2  依赖环境为：LAMP</code><br><br>系统环境跳过安装：确保centos 是干净环境；现在安装依赖环境 我们利用yum来安装，首先我们替换yum源 可选择（阿里源、网易源）这里是阿里源。</p>
 <p>###1. 下载yum源替换：###<br>备份/etc/yum.repos.d，在下载新的yum 源</p>
 <ul>
 <li>  wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/repo/Centos-7.repo</a></li>
