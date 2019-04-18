@@ -6,19 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JanNan</title>
+  <title>zabbix安装 | JanNan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="业余的菜鸟，记录一下日常">
-<meta name="keywords" content="弱鸡,shell,运维,k8s,linux">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JanNan">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Zabbix 配置客户端及解决问题##1、安装客户端的 Zabbix## ###1.1( yum 源安装)### yum install zabbix-agent ###1.2、配置客户端文件###   vim /etc/zabbix/zabbix_agentd.conf Server=127.0.0.1修改为Server=192.168.133.130  定义服务端的ip（被动模式） Serve">
+<meta name="keywords" content="zabbix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zabbix安装">
+<meta property="og:url" content="http://yoursite.com/2019/04/18/配置客户端及解决问题/index.html">
 <meta property="og:site_name" content="JanNan">
-<meta property="og:description" content="业余的菜鸟，记录一下日常">
+<meta property="og:description" content="Zabbix 配置客户端及解决问题##1、安装客户端的 Zabbix## ###1.1( yum 源安装)### yum install zabbix-agent ###1.2、配置客户端文件###   vim /etc/zabbix/zabbix_agentd.conf Server=127.0.0.1修改为Server=192.168.133.130  定义服务端的ip（被动模式） Serve">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/监控名称.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/web界面中文.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/中文.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/字符集.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/全局替换.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/刷新界面.jpg">
+<meta property="og:updated_time" content="2019-04-18T09:21:29.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JanNan">
-<meta name="twitter:description" content="业余的菜鸟，记录一下日常">
+<meta name="twitter:title" content="zabbix安装">
+<meta name="twitter:description" content="Zabbix 配置客户端及解决问题##1、安装客户端的 Zabbix## ###1.1( yum 源安装)### yum install zabbix-agent ###1.2、配置客户端文件###   vim /etc/zabbix/zabbix_agentd.conf Server=127.0.0.1修改为Server=192.168.133.130  定义服务端的ip（被动模式） Serve">
+<meta name="twitter:image" content="http://yoursite.com/img/zabbix/监控名称.jpg">
   
     <link rel="alternative" href="/atom.xml" title="JanNan" type="application/atom+xml">
   
@@ -158,16 +166,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-配置客户端及解决问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-配置客户端及解决问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/18/配置客户端及解决问题/">zabbix安装</a>
+    <h1 class="article-title" itemprop="name">
+      zabbix安装
     </h1>
   
 
@@ -191,96 +197,37 @@ ServerActive=127.0.0.1修改ServerActive=192.168.133.130
 Hostname=Zabbix server修改为zabbix  
 这是自定义的主机名，一会还需要在web界面下设置同样的主机名
 </code></pre><p>##2、    启动客户端##<br>    systemctl start zabbix-agent</p>
-        
-          <a class="article-more-a" href="/2019/04/18/配置客户端及解决问题/#more">more >></a>
-        
-      
+<a id="more"></a>
+<p>##3、    更改监控名称###<br>     更改为与agent 了里hostname 一样否者会报错<br><img src="/img/zabbix/监控名称.jpg" alt></p>
+<p>##4.查看日志##<br>    cat /var/log/zabbix/zabbix_server.log<br>    cat /var/log/zabbix/zabbix_agent.log</p>
+<p>##5.更改web界面显示中文##</p>
+<p><img src="/img/zabbix/web界面中文.jpg" alt><br><img src="/img/zabbix/中文.jpg" alt></p>
+<p>修改完毕后查看图形会显示乱码,此时需要添加一个配置文件以及中文配置.</p>
+<p>首先查找windows 路径下的楷体字符集</p>
+<pre><code>C:\Windows\Fonts
+</code></pre><p><img src="/img/zabbix/字符集.jpg" alt></p>
+<p>上传路径： </p>
+<pre><code>/usr/share/zabbix/fonts/
+</code></pre><p>上传完修改文件名 Zabbix 不识别大写 </p>
+<pre><code>[root@zabbix fonts]# ll
+total 11512
+-rwsrwsrwt. 1 root root 11785184 Feb 21 10:21 simkai.ttf
+</code></pre><p>给予权限:</p>
+<pre><code>chmod 777 simkai.ttf
+</code></pre><p>修改之后删除上一个软连接:</p>
+<pre><code>rm -f /etc/alternatives/zabbix-web-font
+</code></pre><p>重新做一个软连接:</p>
+<pre><code>ln -s /usr/share/zabbix/fonts/simkai.ttf  /etc/alternatives/zabbix-web-font
+</code></pre><p>修改配置文件：</p>
+<pre><code>[root@zabbix include]# pwd
+/usr/share/zabbix/include
+[root@zabbix include]# vi defines.inc.php 
+</code></pre><p>vim 编辑该文件，使用%s/graphfont/simhei/g命令对graphfont进行全局替换</p>
+<p><img src="/img/zabbix/全局替换.jpg" alt></p>
+<p>重启 httpd  Zabbix-server</p>
+<pre><code>[root@zabbix ~]# systemctl restart httpd zabbix-server
+</code></pre><p>刷新页面<br><img src="/img/zabbix/刷新界面.jpg" alt></p>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/zabbix//" class="article-tag-list-link color2">zabbix</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/18/配置客户端及解决问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-zabbix服务端安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/19/zabbix服务端安装/">zabbix安装</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/19/zabbix服务端安装/" class="archive-article-date">
-  	<time datetime="2019-03-19T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Zabbix-服务器端安装部署"><a href="#Zabbix-服务器端安装部署" class="headerlink" title="Zabbix 服务器端安装部署"></a><center>Zabbix 服务器端安装部署</center></h1><center><img src="/img/zabbix/zabbix.jpg" alt></center>
-        
-          <a class="article-more-a" href="/2019/03/19/zabbix服务端安装/#more">more >></a>
-        
       
 
       
@@ -313,16 +260,75 @@ Hostname=Zabbix server修改为zabbix
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/19/zabbix服务端安装/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/18/配置客户端及解决问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/19/zabbix服务端安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">zabbix安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -342,8 +348,14 @@ Hostname=Zabbix server修改为zabbix
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -366,8 +378,8 @@ Hostname=Zabbix server修改为zabbix
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

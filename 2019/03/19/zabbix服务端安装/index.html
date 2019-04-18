@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="JanNan">
 <meta property="og:description" content="Zabbix 服务器端安装部署">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/img/zabbix.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/zabbix.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix-web.jpg">
-<meta property="og:image" content="http://yoursite.com/img/zabbix-pass.jpg">
-<meta property="og:image" content="http://yoursite.com/img/zabbix-ip.jpg">
-<meta property="og:image" content="http://yoursite.com/img/zabbix-login.jpg">
-<meta property="og:updated_time" content="2019-03-19T10:26:09.353Z">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/zabbix-pass.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/zabbix-ip.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/zabbix-login.jpg">
+<meta property="og:updated_time" content="2019-04-18T08:53:34.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zabbix安装">
 <meta name="twitter:description" content="Zabbix 服务器端安装部署">
-<meta name="twitter:image" content="http://yoursite.com/img/zabbix.jpg">
+<meta name="twitter:image" content="http://yoursite.com/img/zabbix/zabbix.jpg">
   
     <link rel="alternative" href="/atom.xml" title="JanNan" type="application/atom+xml">
   
@@ -185,7 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Zabbix-服务器端安装部署"><a href="#Zabbix-服务器端安装部署" class="headerlink" title="Zabbix 服务器端安装部署"></a><center>Zabbix 服务器端安装部署</center></h1><center><img src="/img/zabbix.jpg" alt></center>
+        <h1 id="Zabbix-服务器端安装部署"><a href="#Zabbix-服务器端安装部署" class="headerlink" title="Zabbix 服务器端安装部署"></a><center>Zabbix 服务器端安装部署</center></h1><center><img src="/img/zabbix/zabbix.jpg" alt></center>
 
 <a id="more"></a>
 <h2 id="一、-配置依赖环境"><a href="#一、-配置依赖环境" class="headerlink" title="一、    配置依赖环境"></a>一、    配置依赖环境</h2><p><code>注意：此次系统环境为：centos 7.2  依赖环境为：LAMP</code><br><br>系统环境跳过安装：确保centos 是干净环境；现在安装依赖环境 我们利用yum来安装，首先我们替换yum源 可选择（阿里源、网易源）这里是阿里源。</p>
@@ -249,7 +249,7 @@ DBSocket=/var/lib/mysql/mysql.sock   ##连接数据库的sock
 </code></pre><p>####5、启动Zabbix server和agent进程####<br>    systemctl restart zabbix-server zabbix-agent httpd</p>
 <p>###三、配置Zabbix前端###</p>
 <p>####1、连接到新安装的Zabbix前端：####<br>     <a href="http://server_ip_or_name/zabbix" target="_blank" rel="noopener">http://server_ip_or_name/zabbix</a></p>
-<p>####2、配置前端：####<br>    <img src="/img/zabbix-web.jpg" alt><br><code>注意 如果这里不合格报错  请修改 php.ini  路径为：/etc/php.ini</code><br><img src="/img/zabbix-pass.jpg" alt><br><img src="/img/zabbix-ip.jpg" alt><br><img src="/img/zabbix-login.jpg" alt><br><code>注意默认用户名是admin  密码是zabbix</code></p>
+<p>####2、配置前端：####<br>    <img src="/img/zabbix-web.jpg" alt><br><code>注意 如果这里不合格报错  请修改 php.ini  路径为：/etc/php.ini</code><br><img src="/img/zabbix/zabbix-pass.jpg" alt><br><img src="/img/zabbix/zabbix-ip.jpg" alt><br><img src="/img/zabbix/zabbix-login.jpg" alt><br><code>注意默认用户名是admin  密码是zabbix</code></p>
 <p>##至此服务器安装结束##</p>
 
       
@@ -343,6 +343,20 @@ DBSocket=/var/lib/mysql/mysql.sock   ##连接数据库的sock
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/04/18/配置客户端及解决问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          zabbix安装
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -461,10 +475,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zabbix服务端</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
