@@ -6,19 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | JanNan</title>
+  <title>zabbix安装 | JanNan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="业余的菜鸟，记录一下日常">
-<meta name="keywords" content="弱鸡,shell,运维,k8s,linux">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JanNan">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="Zabbix邮件报警以及触发器配置 1、server端配置邮件系统 1.1 安装senmail    yum -y install sendmail1.2 关闭与启动服务    systemctl stop postfix    systemctl start sendmail1.3、安装邮件发送工具mailx    yum -y install mailx1.4、配置mailvim /etc/m">
+<meta name="keywords" content="zabbix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zabbix安装">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/zabbix邮件报警/index.html">
 <meta property="og:site_name" content="JanNan">
-<meta property="og:description" content="业余的菜鸟，记录一下日常">
+<meta property="og:description" content="Zabbix邮件报警以及触发器配置 1、server端配置邮件系统 1.1 安装senmail    yum -y install sendmail1.2 关闭与启动服务    systemctl stop postfix    systemctl start sendmail1.3、安装邮件发送工具mailx    yum -y install mailx1.4、配置mailvim /etc/m">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-1.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-2.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-3.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-4.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-5.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-6.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-7.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-8.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-9.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-10.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-11.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-12.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-13.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-14.jpg">
+<meta property="og:image" content="http://yoursite.com/img/zabbix/email-15.jpg">
+<meta property="og:updated_time" content="2019-04-19T01:58:14.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JanNan">
-<meta name="twitter:description" content="业余的菜鸟，记录一下日常">
+<meta name="twitter:title" content="zabbix安装">
+<meta name="twitter:description" content="Zabbix邮件报警以及触发器配置 1、server端配置邮件系统 1.1 安装senmail    yum -y install sendmail1.2 关闭与启动服务    systemctl stop postfix    systemctl start sendmail1.3、安装邮件发送工具mailx    yum -y install mailx1.4、配置mailvim /etc/m">
+<meta name="twitter:image" content="http://yoursite.com/img/zabbix/email-1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="JanNan" type="application/atom+xml">
   
@@ -158,36 +175,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-zabbix邮件报警" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      zabbix安装
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/19/zabbix邮件报警/" class="archive-article-date">
+
+        
+        <a href="/2019/04/19/zabbix邮件报警/" class="archive-article-date">
   	<time datetime="2019-04-19T01:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/19/zabbix邮件报警/">zabbix安装</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h1><center>Zabbix邮件报警以及触发器配置</center></h1><p></p>
+<p></p><h2>1、server端配置邮件系统</h2><p></p>
+<h4>1.1 安装senmail</h4><br>    yum -y install sendmail<br><h4>1.2 关闭与启动服务</h4><br>    systemctl stop postfix<br>    systemctl start sendmail<br><h4>1.3、安装邮件发送工具mailx</h4><br>    yum -y install mailx<br><h4>1.4、配置mail</h4><br>vim /etc/mail.rc<br><br>    set  <a href="mailto:from=lg1871212539@sina.com" target="_blank" rel="noopener">from=lg1871212539@sina.com</a><br>    #新浪注册的个人邮箱，用于zabbi服务端转发邮件到指定邮箱<br>    set  smtp=smtp.sina.com<br>    #填写新浪发送邮箱服务器地址smtp<br>    set  smtp-auth-user= lg1871212539<br>    #新浪个人邮箱用户<br>    set  smtp-auth-password=lg123456<br>    #新浪个人邮箱密码<br>    set  smtp-auth=login<br>    #登录<br><br><a id="more"></a><br><h4>1.5、测试邮件能否发送</h4>
 
-        <div class="article-info info-on-right">
-          
+<pre><code>echo &quot;test&quot; | mail -s &apos;test linux&apos;  836785001@qq.com
+</code></pre><p><img src="/img/zabbix/email-1.jpg" alt></p>
+<p></p><h4>1.6、编写邮件发送脚本sendmail.sh</h4><br><img src="/img/zabbix/email-2.jpg" alt><p></p>
+<pre><code>#!/bin/bash
+messages=`echo $3 | tr &apos;\r\n&apos; &apos;\n&apos;`
+subject=`echo $2 | tr &apos;\r\n&apos; &apos;\n&apos;`
+echo &quot;${messages}&quot; | mail -s &quot;${subject}&quot; $1 &gt;&gt;/tmp/sendmail.log 2&gt;&amp;1
+
+chmod +x sendmail.sh
+</code></pre><p>用户执行sendmail.sh脚本看是否有权限</p>
+<pre><code>/usr/lib/zabbix/alertscripts/sendmail.sh 836785001@qq.com &quot;test&quot; &quot;ahahah&quot;
+</code></pre><p></p><h2>2、zabbix web 界面配置</h2><p></p>
+<p></p><h4>2.1、管理 —-  报警媒介类型 —–  创建媒介类型</h4><br><img src="/img/zabbix/email-3.jpg" alt><p></p>
+<p></p><h4>2.2、名称可以随便自己定义 —– 类型选择脚本 —– 脚本名称输入上一步编写的发送邮件的脚本名称 —-</h4><br>再添加以下3个参数，分别对应脚本需要的3个参数：收件人地址、主题、详细内容：<p></p>
+<pre><code>{ALERT.SENDTO}
+{ALERT.SUBJECT}
+{ALERT.MESSAGE}
+</code></pre><p><img src="/img/zabbix/email-4.jpg" alt></p>
+<p></p><h4>2.3、管理 —- 用户 —– 选择admin用户。(自己创建一个用户也可以)</h4><br><img src="/img/zabbix/email-5.jpg" alt><p></p>
+<p></p><h4>2.4、报警媒介 —- 添加</h4><br><img src="/img/zabbix/email-6.jpg" alt><br><img src="/img/zabbix/email-7.jpg" alt><p></p>
+<p></p><h4>2.5、选择更新。</h4><br><img src="/img/zabbix/email-8.jpg" alt><p></p>
+<p></p><h4>2.6、权限设置(管理员用户不用修改，权限默认所有服务器，如果要分类权限需要在用户组进行控制)</h4><br><img src="/img/zabbix/email-9.jpg" alt><p></p>
+<p></p><h2>3、创建动作</h2><p></p>
+<p></p><h4>3.1、配置 —- 动作 —- 创建动作。</h4><br><img src="/img/zabbix/email-10.jpg" alt><p></p>
+<p></p><h4>3.2、动作 —- 名称自定义 — 设置一条新的触发条件 —- 启用 —- 添加。</h4><br>(触发条件需要根据实际情况设置)<br>触发器   似      is unreachable for 5 minutes      #根据主机触发器  Template App Zabbix Agent: Zabbix agent on {HOST.NAME} is unreachable for 5 minutes  设置，主要监测zabbix_agentd客户端连接情况。<br><img src="/img/zabbix/email-11.jpg" alt><p></p>
+<p></p><h4>3.3、定义操作</h4><br><img src="/img/zabbix/email-12.jpg" alt><br><img src="/img/zabbix/email-13.jpg" alt><br>定义恢复操作<br><img src="/img/zabbix/email-14.jpg" alt><br>动作被触发后会在 动作日志里面看到<br><img src="/img/zabbix/email-15.jpg" alt><p></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -199,7 +244,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -212,164 +257,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/19/zabbix邮件报警/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/19/配置mysql+tomcat/" class="archive-article-date">
-  	<time datetime="2019-04-19T01:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/19/配置mysql+tomcat/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">zabbix安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/19/配置mysql+tomcat/">zabbix安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/zabbix//" class="article-tag-list-link color2">zabbix</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/18/配置客户端及解决问题/" class="archive-article-date">
-  	<time datetime="2019-04-18T09:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/18/配置客户端及解决问题/">zabbix安装</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/zabbix//" class="article-tag-list-link color2">zabbix</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/19/zabbix服务端安装/" class="archive-article-date">
-  	<time datetime="2019-03-19T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/19/zabbix服务端安装/">zabbix安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/zabbix//" class="article-tag-list-link color2">zabbix</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -392,8 +377,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

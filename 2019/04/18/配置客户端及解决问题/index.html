@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>zabbix安装 | JanNan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Zabbix 配置客户端及解决问题##1、安装客户端的 Zabbix## ###1.1( yum 源安装)### yum install zabbix-agent ###1.2、配置客户端文件###   vim /etc/zabbix/zabbix_agentd.conf Server=127.0.0.1修改为Server=192.168.133.130  定义服务端的ip（被动模式） Serve">
+  <meta name="description" content="Zabbix 配置客户端及解决问题1、安装客户端的 Zabbix1.1( yum 源安装)    yum install zabbix-agent1.2、配置客户端文件   vim /etc/zabbix/zabbix_agentd.conf    Server=127.0.0.1修改为Server=192.168.133.130    定义服务端的ip（被动模式）    ServerActive">
 <meta name="keywords" content="zabbix">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zabbix安装">
 <meta property="og:url" content="http://yoursite.com/2019/04/18/配置客户端及解决问题/index.html">
 <meta property="og:site_name" content="JanNan">
-<meta property="og:description" content="Zabbix 配置客户端及解决问题##1、安装客户端的 Zabbix## ###1.1( yum 源安装)### yum install zabbix-agent ###1.2、配置客户端文件###   vim /etc/zabbix/zabbix_agentd.conf Server=127.0.0.1修改为Server=192.168.133.130  定义服务端的ip（被动模式） Serve">
+<meta property="og:description" content="Zabbix 配置客户端及解决问题1、安装客户端的 Zabbix1.1( yum 源安装)    yum install zabbix-agent1.2、配置客户端文件   vim /etc/zabbix/zabbix_agentd.conf    Server=127.0.0.1修改为Server=192.168.133.130    定义服务端的ip（被动模式）    ServerActive">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/img/zabbix/监控名称.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix/web界面中文.jpg">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://yoursite.com/img/zabbix/字符集.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix/全局替换.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix/刷新界面.jpg">
-<meta property="og:updated_time" content="2019-04-18T09:21:29.613Z">
+<meta property="og:updated_time" content="2019-04-19T02:08:18.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zabbix安装">
-<meta name="twitter:description" content="Zabbix 配置客户端及解决问题##1、安装客户端的 Zabbix## ###1.1( yum 源安装)### yum install zabbix-agent ###1.2、配置客户端文件###   vim /etc/zabbix/zabbix_agentd.conf Server=127.0.0.1修改为Server=192.168.133.130  定义服务端的ip（被动模式） Serve">
+<meta name="twitter:description" content="Zabbix 配置客户端及解决问题1、安装客户端的 Zabbix1.1( yum 源安装)    yum install zabbix-agent1.2、配置客户端文件   vim /etc/zabbix/zabbix_agentd.conf    Server=127.0.0.1修改为Server=192.168.133.130    定义服务端的ip（被动模式）    ServerActive">
 <meta name="twitter:image" content="http://yoursite.com/img/zabbix/监控名称.jpg">
   
     <link rel="alternative" href="/atom.xml" title="JanNan" type="application/atom+xml">
@@ -186,21 +186,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Zabbix-配置客户端及解决问题"><a href="#Zabbix-配置客户端及解决问题" class="headerlink" title="Zabbix 配置客户端及解决问题"></a><center>Zabbix 配置客户端及解决问题</center></h1><p>##1、安装客户端的 Zabbix##</p>
-<p>###1.1( yum 源安装)###</p>
-<pre><code>yum install zabbix-agent
-</code></pre><p>###1.2、配置客户端文件###<br>   vim /etc/zabbix/zabbix_agentd.conf</p>
-<pre><code>Server=127.0.0.1修改为Server=192.168.133.130 
-定义服务端的ip（被动模式）
-ServerActive=127.0.0.1修改ServerActive=192.168.133.130 
-定义服务端的ip（主动模式）
-Hostname=Zabbix server修改为zabbix  
-这是自定义的主机名，一会还需要在web界面下设置同样的主机名
-</code></pre><p>##2、    启动客户端##<br>    systemctl start zabbix-agent</p>
-<a id="more"></a>
-<p>##3、    更改监控名称###<br>     更改为与agent 了里hostname 一样否者会报错<br><img src="/img/zabbix/监控名称.jpg" alt></p>
-<p>##4.查看日志##<br>    cat /var/log/zabbix/zabbix_server.log<br>    cat /var/log/zabbix/zabbix_agent.log</p>
-<p>##5.更改web界面显示中文##</p>
+        <h1 id="Zabbix-配置客户端及解决问题"><a href="#Zabbix-配置客户端及解决问题" class="headerlink" title="Zabbix 配置客户端及解决问题"></a><center>Zabbix 配置客户端及解决问题</center></h1><h2>1、安装客户端的 Zabbix</h2><br><h3>1.1( yum 源安装)</h3><br><br>    yum install zabbix-agent<br><h3>1.2、配置客户端文件</h3><br>   vim /etc/zabbix/zabbix_agentd.conf<br><br>    Server=127.0.0.1修改为Server=192.168.133.130<br>    定义服务端的ip（被动模式）<br>    ServerActive=127.0.0.1修改ServerActive=192.168.133.130<br>    定义服务端的ip（主动模式）<br>    Hostname=Zabbix server修改为zabbix<br>    这是自定义的主机名，一会还需要在web界面下设置同样的主机名<br><h2>2、    启动客户端</h2><br>    systemctl start zabbix-agent<br><br><a id="more"></a><br><h3>3、    更改监控名称</h3><br>     更改为与agent 了里hostname 一样否者会报错<br><img src="/img/zabbix/监控名称.jpg" alt><br><h2>4.查看日志</h2><br>    cat /var/log/zabbix/zabbix_server.log<br>    cat /var/log/zabbix/zabbix_agent.log<br><h2>5.更改web界面显示中文</h2>
+
 <p><img src="/img/zabbix/web界面中文.jpg" alt><br><img src="/img/zabbix/中文.jpg" alt></p>
 <p>修改完毕后查看图形会显示乱码,此时需要添加一个配置文件以及中文配置.</p>
 <p>首先查找windows 路径下的楷体字符集</p>

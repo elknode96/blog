@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>zabbix安装 | JanNan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Zabbix 配置mysql+tomcat##一、mysql 监控## ###1、首先安装  Zabbix-agent###  yum install zabbix-agent ###2、添加.my.cnf配置文件路径为：    /etc/zabbix ### ###3、修改zabbix_agentd.conf### Server=127.0.0.1修改为Server=192.168.133.13">
+  <meta name="description" content="Zabbix 配置mysql+tomcat一、mysql 监控 1、首先安装  Zabbix-agent  yum install zabbix-agent 2、添加.my.cnf配置文件路径为：    /etc/zabbix 3、修改zabbix_agentd.conf  Server=127.0.0.1修改为Server=192.168.133.130  定义服务端的ip（被动模式） Serv">
 <meta name="keywords" content="zabbix">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zabbix安装">
 <meta property="og:url" content="http://yoursite.com/2019/04/19/配置mysql+tomcat/index.html">
 <meta property="og:site_name" content="JanNan">
-<meta property="og:description" content="Zabbix 配置mysql+tomcat##一、mysql 监控## ###1、首先安装  Zabbix-agent###  yum install zabbix-agent ###2、添加.my.cnf配置文件路径为：    /etc/zabbix ### ###3、修改zabbix_agentd.conf### Server=127.0.0.1修改为Server=192.168.133.13">
+<meta property="og:description" content="Zabbix 配置mysql+tomcat一、mysql 监控 1、首先安装  Zabbix-agent  yum install zabbix-agent 2、添加.my.cnf配置文件路径为：    /etc/zabbix 3、修改zabbix_agentd.conf  Server=127.0.0.1修改为Server=192.168.133.130  定义服务端的ip（被动模式） Serv">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/img/zabbix/my-cnf.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix/修改完毕后.jpg">
@@ -41,10 +41,10 @@
 <meta property="og:image" content="http://yoursite.com/img/zabbix/tomcat-13.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix/tomcat-14.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zabbix/tomcat-15.jpg">
-<meta property="og:updated_time" content="2019-04-19T01:08:19.920Z">
+<meta property="og:updated_time" content="2019-04-19T02:06:52.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zabbix安装">
-<meta name="twitter:description" content="Zabbix 配置mysql+tomcat##一、mysql 监控## ###1、首先安装  Zabbix-agent###  yum install zabbix-agent ###2、添加.my.cnf配置文件路径为：    /etc/zabbix ### ###3、修改zabbix_agentd.conf### Server=127.0.0.1修改为Server=192.168.133.13">
+<meta name="twitter:description" content="Zabbix 配置mysql+tomcat一、mysql 监控 1、首先安装  Zabbix-agent  yum install zabbix-agent 2、添加.my.cnf配置文件路径为：    /etc/zabbix 3、修改zabbix_agentd.conf  Server=127.0.0.1修改为Server=192.168.133.130  定义服务端的ip（被动模式） Serv">
 <meta name="twitter:image" content="http://yoursite.com/img/zabbix/my-cnf.jpg">
   
     <link rel="alternative" href="/atom.xml" title="JanNan" type="application/atom+xml">
@@ -205,18 +205,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Zabbix-配置mysql-tomcat"><a href="#Zabbix-配置mysql-tomcat" class="headerlink" title="Zabbix 配置mysql+tomcat"></a><center>Zabbix 配置mysql+tomcat</center></h1><p>##一、mysql 监控##</p>
-<p>###1、首先安装  Zabbix-agent### </p>
+        <h1 id="Zabbix-配置mysql-tomcat"><a href="#Zabbix-配置mysql-tomcat" class="headerlink" title="Zabbix 配置mysql+tomcat"></a><center>Zabbix 配置mysql+tomcat</center></h1><p></p><h2>一、mysql 监控</h2><p></p>
+<h3>1、首先安装  Zabbix-agent</h3>
+
 <pre><code>yum install zabbix-agent
-</code></pre><p>###2、添加.my.cnf配置文件路径为：    /etc/zabbix ###<br><img src="/img/zabbix/my-cnf.jpg" alt></p>
-<p>###3、修改zabbix_agentd.conf###</p>
+</code></pre><h3>2、添加.my.cnf配置文件路径为：    /etc/zabbix </h3><br><img src="/img/zabbix/my-cnf.jpg" alt><br><br><h3>3、修改zabbix_agentd.conf</h3>
+
 <pre><code>Server=127.0.0.1修改为Server=192.168.133.130 
 定义服务端的ip（被动模式）
 ServerActive=127.0.0.1修改为ServerActive=192.168.133.130 
 定义服务端的ip（主动模式）
 Hostname=Zabbix server修改为zabbix  
 这是自定义的主机名，一会还需要在web界面下设置同样的主机名
-</code></pre><p>###4、修改userparameter_mysql.conf###<br>    [root@zabbix zabbix_agentd.d]# pwd<br>    /etc/zabbix/zabbix_agentd.d<br>    [root@zabbix zabbix_agentd.d]# ls<br>    userparameter_mysql.conf  userparameter_percona_mysql.conf</p>
+</code></pre><p></p><h3>4、修改userparameter_mysql.conf</h3><br>    [root@zabbix zabbix_agentd.d]# pwd<br>    /etc/zabbix/zabbix_agentd.d<br>    [root@zabbix zabbix_agentd.d]# ls<br>    userparameter_mysql.conf  userparameter_percona_mysql.conf<p></p>
 <pre><code>修改HOME=/var/lib/Zabbix 改为/etc/Zabbix  
 HOME=为mysql用户密码存放地 /etc/Zabbix
 
@@ -226,7 +227,7 @@ mysqladmin ping | grep -c alive
 这个命令使用时 当mysql 关闭后 不能触发触发器  所以 换一条
 </code></pre><p>修改完毕后<br><img src="/img/zabbix/修改完毕后.jpg" alt></p>
 <a id="more"></a>
-<p>###5、启动客户端 测试###<br>1、    启动客户端</p>
+<p></p><h3>5、启动客户端 测试</h3><br>1、    启动客户端<p></p>
 <pre><code>service Zabbix-agent start
 </code></pre><p>2、    客户端测试</p>
 <pre><code>zabbix_agentd -t mysql.ping -c /etc/zabbix/zabbix_agentd.d/userparameter_mysql.conf
@@ -239,36 +240,40 @@ mysqladmin ping | grep -c alive
 <pre><code>chmod +s /bin/netstat
 执行chmod +s /bin/netstat防止zabbix-server远程调用失效
 </code></pre><p>再次测试 得出结果为1 正确！<br><img src="/img/zabbix/测试1.jpg" alt></p>
-<p>###6、此时去server web 上配置 mysql 这台机子监控###<br><img src="/img/zabbix/添加mysql-1.jpg" alt><br><img src="/img/zabbix/添加mysql-2.jpg" alt><br><img src="/img/zabbix/添加mysql-3.jpg" alt><br>此处主机名称必须与zabbix-agent 下的 hostname 相同<br><img src="/img/zabbix/添加mysql-4.jpg" alt></p>
-<p>###7、启动mysql 触发器 以及 创建 mysql ping 的图形###<br><img src="/img/zabbix/添加mysql-5.jpg" alt><br>此时mysql 监控完毕 可以去看一下图形即可</p>
-<p>##二、tomcat 监控##</p>
-<p>###1、首先配置server 端：###</p>
-<p>####1.1安装 Zabbix-java-gateway####</p>
+<p></p><h3>6、此时去server web 上配置 mysql 这台机子监控</h3><br><img src="/img/zabbix/添加mysql-1.jpg" alt><br><img src="/img/zabbix/添加mysql-2.jpg" alt><br><img src="/img/zabbix/添加mysql-3.jpg" alt><br>此处主机名称必须与zabbix-agent 下的 hostname 相同<br><img src="/img/zabbix/添加mysql-4.jpg" alt><p></p>
+<p></p><h3>7、启动mysql 触发器 以及 创建 mysql ping 的图形</h3><br><img src="/img/zabbix/添加mysql-5.jpg" alt><br>此时mysql 监控完毕 可以去看一下图形即可<p></p>
+<p></p><h2>二、tomcat 监控</h2><p></p>
+<p></p><h3>1、首先配置server 端：</h3><p></p>
+<h4>1.1安装 Zabbix-java-gateway</h4>
+
 <pre><code>yum -y install  java-devel Zabbix-java-gateway 
-</code></pre><p>####1.2 配置 Zabbix-java-gateway.conf####</p>
+</code></pre><h4>1.2 配置 Zabbix-java-gateway.conf</h4>
+
 <p><img src="/img/zabbix/tomcat-1.jpg" alt></p>
-<p>####1.3 配置 Zabbix-server.conf####</p>
+<h4>1.3 配置 Zabbix-server.conf</h4>
+
 <p><img src="/img/zabbix/tomcat-2.jpg" alt></p>
 <pre><code>Javagateway= java-gateway 的地址 
 我这里安装在server上 所以填写的本地
 Javagatewayport= java-gateway的端口号
 上面java-gateway 已经定义
-</code></pre><p>####1.4 启动 server 和java ####</p>
+</code></pre><h4>1.4 启动 server 和java </h4>
+
 <pre><code>Systemctl restart Zabbix-server
 启动java-gateway
 /usr/sbin/zabbix_java_gateway start
-</code></pre><p>####1.5 查看10052端口是否启动####<br><img src="/img/zabbix/tomcat-3.jpg" alt></p>
-<p>###2、配置agent 端###</p>
-<p>####2.1 修改catalina.sh####<br>    添加CATALINA_OPTS=”-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.port=12345 -Djava.rmi.server.hostname=IP”<br>注释：    </p>
+</code></pre><p></p><h4>1.5 查看10052端口是否启动</h4><br><img src="/img/zabbix/tomcat-3.jpg" alt><p></p>
+<p></p><h3>2、配置agent 端</h3><p></p>
+<p></p><h4>.1 修改catalina.sh</h4><br>    添加CATALINA_OPTS=”-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.port=12345 -Djava.rmi.server.hostname=IP”<br>注释：    <p></p>
 <pre><code>Dcom.sun.management.jmxremote.port= 为jmx 端口
 -Djava.rmi.server.hostname=为agent部署的服务器地址
 </code></pre><p><img src="/img/zabbix/tomcat-4.jpg" alt></p>
-<p>####2.2 拷贝jar 进入 tomcat/lib ####<br>    cp catalina-jmx-remote.jar   /tomcat/lib<br>    cp cmdline-jmxclient-0.10.3.jar /tomcat/bin</p>
-<p>####2.3 启动tomcat 重启agent####<br><img src="/img/zabbix/tomcat-5.jpg" alt><br><img src="/img/zabbix/tomcat-6.jpg" alt></p>
-<p>####2.4 查看端口####<br><img src="/img/zabbix/tomcat-7.jpg" alt></p>
-<p>###三、配置web端###</p>
-<p>####3.1 上传tomcat 模板####<br><img src="/img/zabbix/tomcat-8.jpg" alt><br><img src="/img/zabbix/tomcat-9.jpg" alt></p>
-<p>####3.2 添加主机的jmx监控####<br><img src="/img/zabbix/tomcat-10.jpg" alt><br><img src="/img/zabbix/tomcat-11.jpg" alt><br>添加完毕后去查看状态，现在开始修改里面session 监控错误<br>首先查看监控项会出现 不支持选项<br><img src="/img/zabbix/tomcat-12.jpg" alt><br>修改以下几个 停用 然后复制名称 复制键值 修改context=/war包名字<br><img src="/img/zabbix/tomcat-13.jpg" alt><br>添加新的监控项<br><img src="/img/zabbix/tomcat-14.jpg" alt><br>剩下几个也一样 然后添加图片<br><img src="/img/zabbix/tomcat-15.jpg" alt></p>
+<p></p><h4>2.2 拷贝jar 进入 tomcat/lib </h4><br>    cp catalina-jmx-remote.jar   /tomcat/lib<br>    cp cmdline-jmxclient-0.10.3.jar /tomcat/bin<p></p>
+<p></p><h4>2.3 启动tomcat 重启agent</h4><br><img src="/img/zabbix/tomcat-5.jpg" alt><br><img src="/img/zabbix/tomcat-6.jpg" alt><p></p>
+<p></p><h4>2.4 查看端口</h4><br><img src="/img/zabbix/tomcat-7.jpg" alt><p></p>
+<p></p><h3>三、配置web端</h3><p></p>
+<p></p><h4>3.1 上传tomcat 模板</h4><br><img src="/img/zabbix/tomcat-8.jpg" alt><br><img src="/img/zabbix/tomcat-9.jpg" alt><p></p>
+<p></p><h4>3.2 添加主机的jmx监控</h4><br><img src="/img/zabbix/tomcat-10.jpg" alt><br><img src="/img/zabbix/tomcat-11.jpg" alt><br>添加完毕后去查看状态，现在开始修改里面session 监控错误<br>首先查看监控项会出现 不支持选项<br><img src="/img/zabbix/tomcat-12.jpg" alt><br>修改以下几个 停用 然后复制名称 复制键值 修改context=/war包名字<br><img src="/img/zabbix/tomcat-13.jpg" alt><br>添加新的监控项<br><img src="/img/zabbix/tomcat-14.jpg" alt><br>剩下几个也一样 然后添加图片<br><img src="/img/zabbix/tomcat-15.jpg" alt><p></p>
 
       
 
@@ -362,6 +367,15 @@ Javagatewayport= java-gateway的端口号
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/04/19/zabbix邮件报警/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          zabbix安装
+        
+      </div>
+    </a>
   
   
     <a href="/2019/04/18/配置客户端及解决问题/" id="article-nav-older" class="article-nav-link-wrap">
