@@ -160,6 +160,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-配置mysql+tomcat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/19/配置mysql+tomcat/">zabbix安装</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/19/配置mysql+tomcat/" class="archive-article-date">
+  	<time datetime="2019-04-19T01:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Zabbix-配置mysql-tomcat"><a href="#Zabbix-配置mysql-tomcat" class="headerlink" title="Zabbix 配置mysql+tomcat"></a><center>Zabbix 配置mysql+tomcat</center></h1><p>##一、mysql 监控##</p>
+<p>###1、首先安装  Zabbix-agent### </p>
+<pre><code>yum install zabbix-agent
+</code></pre><p>###2、添加.my.cnf配置文件路径为：    /etc/zabbix ###<br><img src="/img/zabbix/my-cnf.jpg" alt></p>
+<p>###3、修改zabbix_agentd.conf###</p>
+<pre><code>Server=127.0.0.1修改为Server=192.168.133.130 
+定义服务端的ip（被动模式）
+ServerActive=127.0.0.1修改为ServerActive=192.168.133.130 
+定义服务端的ip（主动模式）
+Hostname=Zabbix server修改为zabbix  
+这是自定义的主机名，一会还需要在web界面下设置同样的主机名
+</code></pre><p>###4、修改userparameter_mysql.conf###<br>    [root@zabbix zabbix_agentd.d]# pwd<br>    /etc/zabbix/zabbix_agentd.d<br>    [root@zabbix zabbix_agentd.d]# ls<br>    userparameter_mysql.conf  userparameter_percona_mysql.conf</p>
+<pre><code>修改HOME=/var/lib/Zabbix 改为/etc/Zabbix  
+HOME=为mysql用户密码存放地 /etc/Zabbix
+
+修改UserParameter=mysql.ping,HOME=/var/lib/zabbix 
+mysqladmin ping | grep -c alive
+改为：UserParameter=mysql.ping,netstat -ntpl|grep 3306 |grep mysql |wc |awk &apos;{print $1}&apos;
+这个命令使用时 当mysql 关闭后 不能触发触发器  所以 换一条
+</code></pre><p>修改完毕后<br><img src="/img/zabbix/修改完毕后.jpg" alt></p>
+        
+          <a class="article-more-a" href="/2019/04/19/配置mysql+tomcat/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">zabbix</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/zabbix//" class="article-tag-list-link color2">zabbix</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/19/配置mysql+tomcat/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-配置客户端及解决问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
